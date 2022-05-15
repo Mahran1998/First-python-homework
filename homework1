@@ -1,1 +1,118 @@
+# Q-1
+# A-
+
+grad_std = ["maiky","jack","mahran","selena","christena"]
+name = input("inter student name: ")
+if name in grad_std:
+    print("the student " + name + " is graduated")
+else :
+    print("the student " + name + "is not graduated")
+
+
+
+# Q-1
+# B-
+
+List = []
+for num in range(1,1001,1):
+    if num % 2 == 1:
+        List.append(num)
+print (List)    
+
+
+# Q-1
+# C-
+
+L = ['Network','Math','Programming','Physics','Music']
+char='P'
+def find_p(List,char):
+    for i in List:
+        if char in i:
+            print(i)
+find_p(L,'P')
+
+
+
+# Q-1
+# D-
+
+d={1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,10:0}
+for key, value in d.items():
+    d[key]=value*value
+print(d)    
+
+
+
+# Q-2
+
+
+binary=[]
+decimal = int(input ("inter your decimal number: "))
+while(decimal>0):
+    if decimal % 2 == 0:
+        binary.append(0)
+    else:
+        binary.append(1)
+    decimal //= 2 
+binary.reverse()
+print("the equivalent binary number is: " + str(binary))    
+    
+    
+    
+ # Q-3
+
+def new_file(file_name,ques_ans):
+    Write = open(file_name,"w")
+    ques_ans = [line+"\n" for line in ques_ans]
+    Write.writelines(ques_ans)
+    Write.close()
+
+
+quest_list = ["Q1: What is the author name of the book 'Age Of Renascence'?:;Abn-alnafes",
+              "Q2: What is the author name of the book 'The girl on the train'?:;Paola Hokens",
+              "Q3: What is the author name of the book 'In furiously Happy'?:;Jeny Loson",
+              "Q4: What is the author name of the book 'The library at mount cha'?:;Paola Hokens",
+              "Q5: What is the author name of the book 'Stranger than we can imagine'?:;John Higes",
+              "Q6: What is the author name of the book 'Humans of Newyork'?:;Brandon Stanton",
+              "Q7: What is the author name of the book 'The girl on the train'?:;Paola Hokens",
+              "Q8: What is the author name of the book 'I take you'?:; Eliza Kennedy",
+              "Q9: What is the author name of the book 'Our solus at Night'?:;Kint haroph",
+              "Q10: What is the author name of the book 'Nimona'?:;Noele Stevenson"]
+
+
+
+new_file("Ques_Ans_file.text" , quest_list)
+
+def work_file(file_name):
+    Read = open(file_name , "r")
+    list_Read = [line.rstrip().split(";") for line in Read]
+    return list_Read
+    Read.close
+
+quest_list = work_file("Ques_Ans_file.text")
+
+user_name = input("enter your name: ")
+print("Hello and welcom to my game puzzle: )")
+
+user_name_file = open("user_result.text", "w")
+
+user_name_file.write(user_name)
+
+user_name_file = open("user_result.text", "a")
+
+Score = 0
+
+for i in range(0,10):
+    ans = input(quest_list[i][0])
+    if ans == quest_list[i][1]:
+        Score += 1
+        user_name_file.write("your anwser is correct!!".format(quest_list[i][0] , quest_list[i][1]))
+    else:
+        user_name_file.write("your anwser is Wrong!! and the correcy anwser is: ".format(quest_list[i][0] , quest_list[i][1]))
+
+user_name_file.write("your final score is: ".format(Score))
+user_name_file.close()
+print(open("user_result.text", "r").read())
+user_name_file.close()   
+    
 
